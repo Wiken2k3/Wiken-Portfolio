@@ -1,0 +1,155 @@
+.projects-section {
+  font-family: 'Times New Roman', Times, serif;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #d8d8d8;
+  color: #000;
+}
+
+.projects-title {
+  font-size: 2.2rem;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.project-item {
+  margin-bottom: 60px;
+  padding: 40px 20px;
+  border-radius: 12px;
+}
+
+/* Hình ảnh dự án */
+.image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.project-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Nội dung dự án */
+.project-info {
+  padding-left: 40px;
+  padding-right: 20px;
+}
+/* Dự án 1: nền trắng (giữ nguyên) */
+.project-item-light {
+  background-color: #ffffff;
+}
+
+/* Dự án 2: nền xám nhạt */
+.project-item-dark {
+  background-color: #f7f7f7;
+}
+
+/* Đổ bóng nhẹ cho từng dự án */
+.project-item {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s;
+}
+
+.project-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Padding dưới cùng cho container */
+/* .projects-section .container {
+  padding-bottom: 40px;
+} */
+
+/* Danh sách & liên kết */
+ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #050505;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.project-info .btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .project-info {
+    padding: 30px 10px 0 10px;
+  }
+
+  .image-col {
+    justify-content: center;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .project-img {
+    max-width: 100%;
+  }
+
+  .project-item {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .project-info {
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  .project-info h5 {
+    font-size: 1.1rem;
+  }
+
+  .project-info ul {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .project-info .btn {
+    margin: 10px auto 0;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .projects-title {
+    font-size: 1.8rem;
+  }
+
+  .project-img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-info {
+    font-size: 0.95rem;
+  }
+
+  .project-info ul li {
+    margin-bottom: 5px;
+  }
+
+  .projects-title {
+    font-size: 1.5rem;
+  }
+
+  .project-item {
+    padding: 20px 10px;
+  }
+}

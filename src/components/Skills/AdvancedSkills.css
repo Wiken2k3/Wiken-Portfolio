@@ -1,0 +1,122 @@
+.advanced-skills {
+  padding: 60px 15px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.skills-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.skills-subtitle {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  color: #ffffffcc;
+  letter-spacing: 0.5px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 16px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-8px);
+}
+
+.skill-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.skill-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffffcc;
+}
+
+/* --------- Responsive font and spacing --------- */
+@media (max-width: 1024px) {
+  .skills-title {
+    font-size: 32px;
+  }
+  .skills-subtitle {
+    font-size: 28px;
+  }
+  .skill-logo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 28px;
+  }
+  .skills-subtitle {
+    font-size: 24px;
+  }
+  .skill-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-title {
+    font-size: 24px;
+  }
+  .skills-subtitle {
+    font-size: 20px;
+  }
+  .skills-grid {
+    gap: 24px;
+  }
+  .skill-logo {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-title {
+    font-size: 20px;
+  }
+  .skills-subtitle {
+    font-size: 16px;
+  }
+  .skill-logo {
+    width: 60px;
+    height: 60px;
+  }
+}

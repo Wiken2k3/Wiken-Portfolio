@@ -1,0 +1,157 @@
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.contact-header h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  color: #666;
+}
+
+.contact-options {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.contact-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+}
+
+.contact-box .icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.contact-form-wrapper {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-divider {
+  width: 60px;
+  height: 2px;
+  background: #ccc;
+  margin: 10px auto 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 8px;
+}
+
+.contact-form button {
+  padding: 10px 30px;
+}
+.map-wrapper {
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+.map-wrapper h5 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.map-iframe-container {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.map-iframe-container iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .map-iframe-container iframe {
+    height: 300px;
+  }
+}
+@media (max-width: 992px) {
+  .contact-section {
+    padding: 30px 15px;
+  }
+
+  .contact-box {
+    margin-bottom: 30px;
+  }
+
+  .contact-form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .contact-box .icon {
+    font-size: 36px;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-header p {
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .contact-box {
+    padding: 25px 15px;
+  }
+
+  .contact-box h5 {
+    font-size: 1rem;
+  }
+
+  .contact-box p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 25px 15px;
+  }
+
+  .form-divider {
+    width: 40px;
+    margin: 10px auto 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .map-wrapper {
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .map-iframe-container iframe {
+    height: 250px;
+  }
+}

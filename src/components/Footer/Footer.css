@@ -1,0 +1,140 @@
+.footer {
+  background: linear-gradient(135deg, #1c1c1c, #222);
+  color: #fff;
+  padding: 60px 0 20px 0;
+  font-family: 'Times New Roman', Times, serif;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.footer-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #00cc99;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00cc99;
+}
+
+.footer-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00cc99;
+}
+
+.footer-row {
+  margin-bottom: 40px;
+}
+
+.footer-col h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  /* color: #03ffc0; */
+  position: relative;
+}
+
+.footer-col h5::after {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: #00cc99;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.footer-col h4.footer-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00cc99;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #00cc99;
+  text-decoration: underline;
+}
+
+.footer-links a::before {
+  margin-right: 6px;
+  color: #00cc99;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom:hover {
+  color: #00cc99;
+}
+.footer-mail {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-mail:hover {
+  color: #00cc99;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,76 @@
+.about-top {
+  position: relative;
+  background-color: #fee440;
+  padding: 100px 0;
+  font-family: 'Times New Roman', Times, serif;
+  color: #000;
+  overflow: hidden;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.slogan-wrapper {
+  max-width: 600px;
+  flex: 1;
+}
+
+.slogan-label {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.slogan-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #2b2b2b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.cv-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .about-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .avatar-img {
+    max-width: 280px;
+  }
+
+  .slogan-wrapper {
+    text-align: center;
+  }
+
+  .cv-buttons {
+    justify-content: center;
+  }
+}

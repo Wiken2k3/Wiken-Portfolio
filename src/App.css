@@ -1,0 +1,11 @@
+/* src/App.css */
+.container {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #007bff, #6610f2);
+  color: white;
+}
