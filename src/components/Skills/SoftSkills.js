@@ -38,7 +38,6 @@ export default function SoftSkills() {
     adaptiveHeight: true,
     cssEase: 'ease-in-out',
   };
-
   return (
       <section className="soft-skills-section">
     <h2 className="text-center text-white mb-4">SOFT SKILLS</h2>
@@ -54,7 +53,6 @@ export default function SoftSkills() {
           ))}
         </Slider>
       </div>
-
       <div className="skill-block">
         <h5 className="text-white">Thích ứng và linh hoạt với công việc nhóm</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">

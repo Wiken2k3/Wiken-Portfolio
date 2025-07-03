@@ -27,7 +27,6 @@ export default function Footer() {
       }
     );
   }, []);
-
   return (
     <footer className="footer" ref={footerRef}>
       <Container>
@@ -41,7 +40,6 @@ export default function Footer() {
             <p className="footer-desc">Frontend Developer Portfolio</p>
             <p>Hiển thị các dự án và kỹ năng cá nhân.</p>
           </Col>
-
           {/* Cột 2: Liên kết */}
           <Col md={3} className="footer-col">
             <h5>LIÊN KẾT</h5>
@@ -52,7 +50,6 @@ export default function Footer() {
               <li><a href="/contact">Liên hệ</a></li>
             </ul>
           </Col>
-
           {/* Cột 3: Liên hệ */}
           <Col md={3} className="footer-col">
             <h5>LIÊN HỆ</h5>

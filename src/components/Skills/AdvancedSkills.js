@@ -15,6 +15,8 @@ import Postman from '../../assets/skills/postman.png';
 import Devops from '../../assets/skills/devops.png';
 import Boostrap from '../../assets/skills/boostrap.png';
 import NextJS from '../../assets/skills/nextjs.png';
+import WordPress from '../../assets/skills/wordpress.png';
+
 
 
 const frontendSkills = [
@@ -34,6 +36,7 @@ const otherSkills = [
   { src: Postman, alt: "Postman" },
   { src: gitLogo, alt: "Git" },
   { src: Devops, alt: "DevOps" },
+  { src: WordPress, alt: "WordPress" },
 ];
 
 export default function AdvancedSkills() {

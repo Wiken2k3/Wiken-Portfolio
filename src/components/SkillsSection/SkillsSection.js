@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
-
   useEffect(() => {
     gsap.fromTo(
       sectionRef.current,
@@ -25,7 +24,6 @@ export default function SkillsSection() {
       }
     );
   }, []);
-
   return (
     <section className="skills-section" id="skills" ref={sectionRef}>
       <Container>
@@ -42,7 +40,6 @@ export default function SkillsSection() {
               </ul>
             </div>
           </Col>
-
           <Col md={6}>
             <div className="skills-box">
               <h5>Kỹ năng mềm</h5>
