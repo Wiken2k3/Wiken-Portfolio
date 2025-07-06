@@ -6,8 +6,10 @@
 }
 
 .contact-header h2 {
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  color: #111;
 }
 
 .contact-header p {
