@@ -2,6 +2,7 @@
   background-color: #f9f9f9;
   padding: 40px;
   font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(135deg, #f3f4f6, #ffffff);
 }
 
 .contact-header h2 {
@@ -94,9 +95,12 @@
   }
 
   .contact-box {
+    padding: 25px 15px;
     margin-bottom: 30px;
   }
-
+  .contact-box h5 {
+    font-size: 1rem;
+  }
   .contact-form-wrapper {
     padding: 30px 20px;
   }
@@ -107,6 +111,12 @@
 
   .contact-form button {
     width: 100%;
+  }
+  .contact-box p {
+    font-size: 0.95rem;
+  }
+  .map-iframe-container iframe {
+    height: 300px;
   }
 }
 
