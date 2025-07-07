@@ -66,9 +66,10 @@ export default function Footer() {
           <Col md={3} className="footer-col">
             <h5>THEO DÕI TÔI</h5>
             <ul className="footer-links">
+              <li><a href="https://www.facebook.com/Wiken2k3" target="_blank" rel="noreferrer">Facebook</a></li>
+              <li><a href="https://www.instagram.com/quoctuan.tr/" target="_blank" rel="noreferrer">Instagram</a></li>
               <li><a href="https://github.com/Wiken2k3" target="_blank" rel="noreferrer">GitHub</a></li>
               <li><a href="https://www.linkedin.com/in/wiken2k3/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-              <li><a href="https://www.facebook.com/Wiken2k3" target="_blank" rel="noreferrer">Facebook</a></li>
             </ul>
           </Col>
         </Row>

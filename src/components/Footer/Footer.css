@@ -1,9 +1,105 @@
 .footer {
-  background: linear-gradient(135deg, #1c1c1c, #222);
-  color: #fff;
-  padding: 60px 0 20px 0;
+  background: linear-gradient(to right, #111, #1a1a1a);
   font-family: 'Times New Roman', Times, serif;
-  animation: fadeInUp 1s ease-in-out;
+  color: #f1f1f1;
+  padding: 70px 0 30px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-logo {
+  gap: 14px;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.footer-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid #facc15;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-avatar:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 12px #facc15;
+}
+
+.footer-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #facc15;
+}
+
+.footer-desc {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.footer-col h5 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #facc15;
+  position: relative;
+}
+
+.footer-col h5::after {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: #facc15;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-radius: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #facc15;
+  text-decoration: underline;
+}
+
+.footer-mail {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-mail:hover {
+  color: #facc15;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 15px;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+
+.footer-bottom:hover {
+  color: #facc15;
 }
 
 @keyframes fadeInUp {
