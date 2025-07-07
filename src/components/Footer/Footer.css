@@ -227,7 +227,6 @@
   color: #00cc99;
   text-decoration: underline;
 }
-
 /* Responsive */
 @media (max-width: 992px) {
   .footer-col {
@@ -245,15 +244,30 @@
     margin-right: auto;
   }
 }
-
 @media (max-width: 768px) {
   .footer {
     padding: 50px 20px 25px;
+    text-align: center;
   }
 
   .footer-row {
     flex-direction: column !important;
     gap: 40px;
+    align-items: center;
+  }
+
+  .footer-col {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-avatar {
+    width: 52px;
+    height: 52px;
   }
 
   .footer-brand {
@@ -261,7 +275,8 @@
   }
 
   .footer-col h5 {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    margin-top: 20px;
   }
 
   .footer-links li {
@@ -270,11 +285,21 @@
 
   .footer-desc {
     font-size: 0.9rem;
+    max-width: 90%;
+    margin: 0 auto 12px;
   }
 
   .footer-mail,
   .footer-links a {
     font-size: 0.95rem;
+  }
+
+  /* Fix iframe Facebook bị co nhỏ hoặc tràn */
+  .fb-iframe-wrapper iframe {
+    width: 100% !important;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
   }
 }
 

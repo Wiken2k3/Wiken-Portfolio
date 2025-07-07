@@ -44,7 +44,7 @@ export default function AboutMeTop() {
             <div className="cv-buttons">
               <Button
                 variant="success"
-                href="https://drive.google.com/file/d/10SSComLMmNwzTjLImmQkaG8At57nhz5G/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Rt2UcDAPxW9coeGphKuOZd1dDxXx_kTF/view?usp=sharing"
                 target="_blank"
               >
                 <FontAwesomeIcon icon={faExternalLinkAlt} className="me-2" />
