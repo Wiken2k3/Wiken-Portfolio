@@ -31,8 +31,8 @@ export default function ProjectsSection() {
       role: 'Frontend Developer (06/2024 – 09/2024)',
       company: 'Công Ty IT-Global Technology Solutions Co., Ltd (IT-Global)',
       technologies: {
-        frontend: 'Html, CSS, ReactJS',
-        backend: 'NextJS'
+        frontend: 'Html, CSS, JavaScript, ReactJS',
+        backend: 'NestJS'
       },
       github: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
       demo: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
@@ -127,7 +127,7 @@ export default function ProjectsSection() {
     {
       id: 8,
       title: 'Thiết kế quản lý lịch trực cho giảng viên',
-      tech: ['Design'],
+      tech: ['FIGMA'],
       technologies: {
         main: 'FIGMA'
       },
