@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Container, Row, Col, Button, Form, Alert } from 'react-bootstrap';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { Container, Row, Col, Button, Form, Alert, Badge } from 'react-bootstrap';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import taxiImg from '../../assets/taxi-tayninh.png';
@@ -21,9 +21,10 @@ export default function ProjectsSection() {
   const sectionRef = useRef(null);
   const [selectedTech, setSelectedTech] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
+  const [animationInitialized, setAnimationInitialized] = useState(false);
 
-  // Dữ liệu dự án
-  const projects = [
+  // Dữ liệu dự án - sử dụng useMemo để tránh re-render không cần thiết
+  const projects = useMemo(() => [
     {
       id: 1,
       title: 'Taxi Tây Ninh',
@@ -37,13 +38,14 @@ export default function ProjectsSection() {
       github: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
       demo: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
       image: taxiImg,
-      alt: 'Taxi Project'
+      alt: 'Taxi Project',
+      category: 'Commercial'
     },
     {
       id: 2,
       title: 'Sport Shop',
       tech: ['ReactJS'],
-      description: 'Full-Stack',
+      description: 'Full-Stack E-commerce Platform',
       technologies: {
         frontend: 'React.js, React Router DOM, Redux Toolkit, React Toastify, Axios, Bootstrap 5, Font Awesome, GSAP',
         backend: 'Node.js, Express.js, MongoDB, Mongoose, CSS3, LocalStorage, Responsive'
@@ -53,39 +55,42 @@ export default function ProjectsSection() {
         backend: 'https://github.com/Wiken2k3/Sport-Shop-Backend'
       },
       image: SportShop,
-      alt: 'Sport Shop'
+      alt: 'Sport Shop',
+      category: 'E-commerce'
     },
     {
       id: 3,
       title: 'Hotwheels Shop',
       tech: ['NextJS'],
-      description: 'Website bán xe Hotwheels',
+      description: 'Modern E-commerce with TypeScript',
       technologies: {
         main: 'Next.js, TypeScript, Zustand, Tailwind CSS, ShadCN UI, Responsive Layout, React Hook Form, Zod, RTK Query, Jest, ESLint, Prettier'
       },
       github: 'https://github.com/Wiken2k3/Hotwheels-Shop',
       demo: 'https://wikenhotwheelsshop.vercel.app/',
       image: HotwheelsShop,
-      alt: 'Hotwheels Shop'
+      alt: 'Hotwheels Shop',
+      category: 'E-commerce'
     },
     {
       id: 4,
       title: 'Luxury Store',
       tech: ['ReactJS'],
-      description: 'Website bán quần áo',
+      description: 'Fashion E-commerce Platform',
       technologies: {
         main: 'ReactJS, Router DOM, Bootstrap 5, Toastify, CSS Modules, useState, useEffect, Responsive, LocalStorage'
       },
       github: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
       demo: 'https://github.com/Wiken2k3/Admin-Clothing-Store.git',
       image: luxuryStoreImg,
-      alt: 'Admin-Clothing-Store'
+      alt: 'Admin-Clothing-Store',
+      category: 'E-commerce'
     },
     {
       id: 5,
       title: 'Wiken Authentic Store',
       tech: ['ReactJS'],
-      description: 'Website bán đồ streetwear & sneaker',
+      description: 'Streetwear & Sneaker E-commerce',
       technologies: {
         main: 'ReactJS, React Router DOM, Redux Toolkit, React Bootstrap, CSS Modules, React Icons, React Toastify, Axios'
       },
@@ -97,50 +102,56 @@ export default function ProjectsSection() {
       github: 'https://github.com/Wiken2k3/Wiken-Authentic-Store',
       demo: 'https://github.com/Wiken2k3/Wiken-Authentic-Store',
       image: WikenAuthenticStore,
-      alt: 'Wiken Authentic Store'
+      alt: 'Wiken Authentic Store',
+      category: 'E-commerce'
     },
     {
       id: 6,
       title: 'Website Tin tức 24/7',
       tech: ['Vue.js'],
+      description: 'News Portal with Real-time Updates',
       technologies: {
-        main: 'TypeScript, Front-end Framework: Vue.js 3, CSS3, LocalStorage, Responsive'
+        main: 'TypeScript, Vue.js 3, CSS3, LocalStorage, Responsive Design'
       },
       github: 'https://github.com/Wiken2k3/News-App',
       demo: 'https://github.com/Wiken2k3/News-App',
       image: NewsApp,
-      alt: 'News App'
+      alt: 'News App',
+      category: 'Media'
     },
     {
       id: 7,
       title: 'T1Sneaker',
       tech: ['WordPress'],
-      description: 'Website bán giày',
+      description: 'WordPress E-commerce Solution',
       technologies: {
-        main: 'WordPress, XAMPP, PHP'
+        main: 'WordPress, XAMPP, PHP, MySQL'
       },
       github: 'https://t1sneakers.id.vn/',
       demo: 'https://t1sneakers.id.vn/',
       image: t1sneakerImg,
-      alt: 'T1Sneaker Project'
+      alt: 'T1Sneaker Project',
+      category: 'E-commerce'
     },
     {
       id: 8,
       title: 'Thiết kế quản lý lịch trực cho giảng viên',
       tech: ['FIGMA'],
+      description: 'UI/UX Design for Academic Scheduling',
       technologies: {
-        main: 'FIGMA'
+        main: 'FIGMA, User Research, Prototyping, Design System'
       },
-      // github: 'https://www.figma.com/design/fV60Ou3yFjS5hjTcAJOaV0/Qu%E1%BA%A3n-L%C3%BD-L%E1%BB%8Bch-Tr%E1%BB%B1c-Gi%E1%BA%A3ng-Vi%C3%AAn?node-id=0-1&t=a3rMkgEaxMCRdVhC-1',
       demo: 'https://www.figma.com/design/fV60Ou3yFjS5hjTcAJOaV0/Qu%E1%BA%A3n-L%C3%BD-L%E1%BB%8Bch-Tr%E1%BB%B1c-Gi%E1%BA%A3ng-Vi%C3%AAn?node-id=0-1&t=a3rMkgEaxMCRdVhC-1',
       image: LichTruc,
       alt: 'Prototype',
-      buttonText: 'Go To Prototype Quản Lý Lịch Trực'
+      buttonText: 'View Prototype',
+      category: 'Design'
     },
     {
       id: 9,
       title: 'Website quản lý kế hoạch công việc',
       tech: ['ReactJS'],
+      description: 'Task Management Application',
       technologies: {
         main: 'React, React Hooks (useState, useEffect), React Toastify, HTML5/JSX, CSS3, LocalStorage, Flexbox & CSS Grid'
       },
@@ -148,264 +159,456 @@ export default function ProjectsSection() {
       demo: 'https://github.com/Wiken2k3/Task-Management-App',
       image: TaskManagement,
       alt: 'Task Management',
-      buttonText: 'Go To Task Management App'
+      buttonText: 'View App',
+      category: 'Productivity'
     },
     {
       id: 10,
       title: 'BLOG App',
       tech: ['JavaScript'],
-      description: 'Website Quản Lí bài Blog',
+      description: 'Content Management System',
       technologies: {
-        main: 'JavaScript, CSS, HTML'
+        main: 'JavaScript ES6+, CSS3, HTML5, Local Storage, Responsive Design'
       },
       github: 'https://github.com/Wiken2k3/Blog-App',
       demo: 'https://github.com/Wiken2k3/Blog-App',
       image: BlogAppImg,
-      alt: 'BLOG App Project'
+      alt: 'BLOG App Project',
+      category: 'CMS'
     },
     {
       id: 11,
       title: 'Admin Clothing Store',
       tech: ['ReactJS'],
+      description: 'Administrative Dashboard',
       technologies: {
         main: 'React.js, Redux Toolkit, React Router, Bootstrap 5, CSS3/SASS, Responsive Design, Chart.js, Data Visualization, Axios, REST API Integration, JWT Authentication, Vite, ESLint, Prettier'
       },
       github: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
       demo: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
       image: AdminDashboard,
-      alt: 'Admin Dashboard'
+      alt: 'Admin Dashboard',
+      category: 'Dashboard'
     }
-  ];
+  ], []);
 
-  // Lọc dự án theo technology và project name
-  const filteredProjects = projects.filter(project => {
-    const techMatch = selectedTech === '' || project.tech.includes(selectedTech);
-    const projectMatch = selectedProject === '' || project.title === selectedProject;
-    return techMatch && projectMatch;
-  });
-
-  // Lấy danh sách công nghệ unique
-  const uniqueTechnologies = [...new Set(projects.flatMap(project => project.tech))];
-
-  useEffect(() => {
-    const items = sectionRef.current?.querySelectorAll('.project-item');
-    if (!items) return;
-
-    items.forEach((item, i) => {
-      gsap.fromTo(
-        item,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: i * 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-          },
-        }
-      );
+  // Lọc dự án theo technology và project name - sử dụng useMemo để tối ưu performance
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const techMatch = selectedTech === '' || project.tech.includes(selectedTech);
+      const projectMatch = selectedProject === '' || project.title === selectedProject;
+      return techMatch && projectMatch;
     });
-  }, [filteredProjects]);
+  }, [projects, selectedTech, selectedProject]);
+
+  // Lấy danh sách công nghệ unique - sử dụng useMemo
+  const uniqueTechnologies = useMemo(() => {
+    return [...new Set(projects.flatMap(project => project.tech))];
+  }, [projects]);
+
+  // Cải tiến animation function để tránh loop vô hạn
+  const initializeAnimations = useCallback(() => {
+    const items = sectionRef.current?.querySelectorAll('.project-item');
+    
+    if (!items || items.length === 0) return;
+
+    // Xóa tất cả ScrollTriggers cũ
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    // Khởi tạo animation cho mỗi item
+    items.forEach((item, i) => {
+      // Reset về trạng thái ban đầu
+      gsap.set(item, { 
+        opacity: 0, 
+        y: 50,
+        scale: 0.95
+      });
+      
+      // Tạo animation với ScrollTrigger
+      gsap.to(item, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%',
+          once: true, // Chỉ chạy một lần
+          onComplete: () => {
+            // Đảm bảo item hiển thị hoàn toàn sau khi animation hoàn thành
+            gsap.set(item, { opacity: 1, y: 0, scale: 1 });
+          }
+        }
+      });
+    });
+
+    setAnimationInitialized(true);
+  }, []);
+
+  // Effect để khởi tạo animations chỉ khi cần thiết
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      initializeAnimations();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      // Cleanup ScrollTriggers khi component unmount
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [filteredProjects.length, initializeAnimations]); // Chỉ chạy lại khi số lượng project thay đổi
 
   // Reset filters
-  const resetFilters = () => {
+  const resetFilters = useCallback(() => {
     setSelectedTech('');
     setSelectedProject('');
-  };
+  }, []);
 
-  // Component để render một dự án
-  const ProjectItem = ({ project, index }) => {
+  // Get category color - sử dụng useMemo để tối ưu
+  const getCategoryColor = useMemo(() => {
+    const colors = {
+      'E-commerce': 'primary',
+      'Commercial': 'success',
+      'Media': 'info',
+      'Design': 'warning',
+      'Productivity': 'secondary',
+      'CMS': 'dark',
+      'Dashboard': 'danger'
+    };
+    return (category) => colors[category] || 'light';
+  }, []);
+
+  // Component để render một dự án - Tối ưu với React.memo
+  const ProjectItem = React.memo(({ project, index }) => {
     const isEven = index % 2 === 0;
     const projectClass = isEven ? 'project-item-light' : 'project-item-dark';
 
     return (
-      <Row className={`align-items-center project-item ${projectClass}`}>
-        {isEven ? (
-          // Layout cho dự án chẵn (hình bên trái)
-          <>
-            <Col xs={12} md={6} className="text-center image-col">
-              <img src={project.image} alt={project.alt} className="project-img" />
-            </Col>
-            <Col md={6} className="project-info text-start">
-              <ProjectContent project={project} index={index} />
-            </Col>
-          </>
-        ) : (
-          // Layout cho dự án lẻ (hình bên phải)
-          <>
-            <Col xs={12} md={6} className="project-info text-start">
-              <ProjectContent project={project} index={index} />
-            </Col>
-            <Col md={6} className="text-center image-col">
-              <img src={project.image} alt={project.alt} className="project-img" />
-            </Col>
-          </>
-        )}
-      </Row>
-    );
-  };
-
-  // Component để render nội dung dự án
-  const ProjectContent = ({ project, index }) => (
-    <>
-      <h5>
-        <strong>Dự Án {index + 1}:</strong> {project.title}
-        {project.description && ` (${project.description})`}
-      </h5>
-      
-      {project.role && (
-        <p>
-          <strong>Vai trò: </strong>{project.role}
-          {project.company && (
+      <div className={`project-item ${projectClass} mb-5`}>
+        <Row className="align-items-center h-100">
+          {isEven ? (
+            // Layout cho dự án chẵn (hình bên trái)
             <>
-              <br />
-              {project.company}
+              <Col xs={12} md={6} className="image-col">
+                <div className="project-image-wrapper">
+                  <img 
+                    src={project.image} 
+                    alt={project.alt} 
+                    className="project-img"
+                    loading="lazy"
+                  />
+                  <div className="project-overlay">
+                    <div className="tech-badges">
+                      {project.tech.map((tech, idx) => (
+                        <Badge key={idx} bg="light" text="dark" className="me-1 mb-1 tech-badge">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Col>
+              <Col xs={12} md={6} className="project-info">
+                <ProjectContent project={project} index={index} />
+              </Col>
+            </>
+          ) : (
+            // Layout cho dự án lẻ (hình bên phải)
+            <>
+              <Col xs={12} md={6} className="project-info order-md-1">
+                <ProjectContent project={project} index={index} />
+              </Col>
+              <Col xs={12} md={6} className="image-col order-md-2">
+                <div className="project-image-wrapper">
+                  <img 
+                    src={project.image} 
+                    alt={project.alt} 
+                    className="project-img"
+                    loading="lazy"
+                  />
+                  <div className="project-overlay">
+                    <div className="tech-badges">
+                      {project.tech.map((tech, idx) => (
+                        <Badge key={idx} bg="light" text="dark" className="me-1 mb-1 tech-badge">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Col>
             </>
           )}
-        </p>
+        </Row>
+      </div>
+    );
+  });
+
+  // Component để render nội dung dự án - Tối ưu với React.memo
+  const ProjectContent = React.memo(({ project, index }) => (
+    <div className="project-content h-100">
+      <div className="project-header mb-3">
+        <div className="d-flex align-items-center mb-3">
+          <span className="project-number me-3">#{String(index + 1).padStart(2, '0')}</span>
+          {project.category && (
+            <Badge bg={getCategoryColor(project.category)} className="category-badge">
+              {project.category}
+            </Badge>
+          )}
+        </div>
+        <h4 className="project-title mb-2">
+          {project.title}
+          {project.description && (
+            <small className="project-description d-block mt-2">{project.description}</small>
+          )}
+        </h4>
+      </div>
+      
+      {project.role && (
+        <div className="project-role mb-3">
+          <div className="role-info">
+            <i className="fas fa-user-tie me-2 text-primary"></i>
+            <strong>Vai trò: </strong>{project.role}
+          </div>
+          {project.company && (
+            <div className="company-name mt-2">
+              <i className="fas fa-building me-2 text-secondary"></i>
+              <span className="text-muted">{project.company}</span>
+            </div>
+          )}
+        </div>
       )}
 
-      <p><strong>Công Nghệ:</strong></p>
-      <ul>
-        {project.technologies.frontend && (
-          <li>Front End: {project.technologies.frontend}</li>
-        )}
-        {project.technologies.backend && (
-          <li>Back End: {project.technologies.backend}</li>
-        )}
-        {project.technologies.main && (
-          <li>{project.technologies.main}</li>
-        )}
-      </ul>
+      <div className="project-technologies mb-3">
+        <h6 className="tech-title">
+          <i className="fas fa-code me-2 text-info"></i>
+          Công Nghệ Sử Dụng:
+        </h6>
+        <div className="tech-content">
+          {project.technologies.frontend && (
+            <div className="tech-item">
+              <span className="tech-label">Frontend:</span> 
+              <span className="tech-value">{project.technologies.frontend}</span>
+            </div>
+          )}
+          {project.technologies.backend && (
+            <div className="tech-item">
+              <span className="tech-label">Backend:</span> 
+              <span className="tech-value">{project.technologies.backend}</span>
+            </div>
+          )}
+          {project.technologies.main && (
+            <div className="tech-item">
+              <span className="tech-value">{project.technologies.main}</span>
+            </div>
+          )}
+        </div>
+      </div>
 
       {project.features && (
-        <>
-          <p><strong>Tính năng nổi bật:</strong></p>
-          <ul>
+        <div className="project-features mb-3">
+          <h6 className="features-title">
+            <i className="fas fa-star me-2 text-warning"></i>
+            Tính năng nổi bật:
+          </h6>
+          <ul className="features-list">
             {project.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
+              <li key={idx} className="feature-item">
+                <i className="fas fa-check-circle me-2 text-success"></i>
+                {feature}
+              </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
 
-      <p><strong>Link dự án chi tiết:</strong></p>
-      <ul>
-        {typeof project.github === 'string' ? (
-          <li>
-            <a href={project.github} target="_blank" rel="noreferrer">
-              {project.github}
-            </a>
-          </li>
-        ) : project.github && (
-          <>
-            <li>
-              <strong>Front-End:</strong>
-              <a href={project.github.frontend} target="_blank" rel="noreferrer">
-                {' ' + project.github.frontend}
+      <div className="project-links mb-4">
+        <h6 className="links-title">
+          <i className="fas fa-link me-2 text-dark"></i>
+          Liên kết dự án:
+        </h6>
+        <div className="links-content">
+          {typeof project.github === 'string' ? (
+            <div className="link-item">
+              <i className="fab fa-github me-2"></i>
+              <a href={project.github} target="_blank" rel="noreferrer" className="project-link">
+                Repository
               </a>
-            </li>
-            <li>
-              <strong>Back-end:</strong>
-              <a href={project.github.backend} target="_blank" rel="noreferrer">
-                {' ' + project.github.backend}
-              </a>
-            </li>
-          </>
-        )}
-      </ul>
+            </div>
+          ) : project.github && (
+            <div className="multiple-links">
+              <div className="link-item">
+                <i className="fab fa-react me-2"></i>
+                <span className="link-label">Frontend:</span>
+                <a href={project.github.frontend} target="_blank" rel="noreferrer" className="project-link">
+                  Frontend Repository
+                </a>
+              </div>
+              <div className="link-item">
+                <i className="fas fa-server me-2"></i>
+                <span className="link-label">Backend:</span>
+                <a href={project.github.backend} target="_blank" rel="noreferrer" className="project-link">
+                  Backend Repository
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
 
       {project.demo && (
-        <Button variant="success" href={project.demo} target="_blank">
-          {project.buttonText || `Go To ${project.title}`}
-        </Button>
+        <div className="project-actions">
+          <Button 
+            variant="primary" 
+            href={project.demo} 
+            target="_blank"
+            className="demo-button w-100"
+            size="lg"
+          >
+            <i className="fas fa-external-link-alt me-2"></i>
+            {project.buttonText || 'Xem Demo'}
+          </Button>
+        </div>
       )}
-    </>
-  );
+    </div>
+  ));
 
   return (
     <section className="projects-section" id="projects" ref={sectionRef}>
-      <Container>
-        <h2 className="projects-title text-center">DỰ ÁN</h2>
+      <Container fluid="xl">
+        <div className="section-header text-center mb-5">
+          <h2 className="projects-title">
+            <span className="title-highlight">DỰ ÁN</span>
+            <span className="title-subtitle d-block">PORTFOLIO</span>
+          </h2>
+          <p className="section-description lead">
+            Khám phá các dự án đã thực hiện 
+          </p>
+        </div>
 
-        {/* Filter Controls */}
-        <div className="d-flex gap-2 justify-content-center mb-4 flex-wrap">
-          <Form.Select
-            size="sm"
-            style={{ maxWidth: '200px' }}
-            value={selectedTech}
-            onChange={(e) => setSelectedTech(e.target.value)}
-          >
-            <option value="">-- Chọn công nghệ --</option>
-            {uniqueTechnologies.map(tech => (
-              <option key={tech} value={tech}>{tech}</option>
-            ))}
-          </Form.Select>
+        {/* Enhanced Filter Controls */}
+        <Row className="justify-content-center mb-5">
+          <Col xs={12} lg={10}>
+            <div className="filter-controls bg-white p-4 rounded-3 shadow-sm">
+              <Row className="g-3 align-items-end">
+                <Col xs={12} sm={6} md={4}>
+                  <Form.Label className="fw-bold text-dark">
+                    <i className="fas fa-filter me-2"></i>
+                    Công nghệ
+                  </Form.Label>
+                  <Form.Select
+                    value={selectedTech}
+                    onChange={(e) => setSelectedTech(e.target.value)}
+                    className="filter-select"
+                  >
+                    <option value="">Tất cả công nghệ</option>
+                    {uniqueTechnologies.map(tech => (
+                      <option key={tech} value={tech}>{tech}</option>
+                    ))}
+                  </Form.Select>
+                </Col>
 
-          <Form.Select
-            size="sm"
-            style={{ maxWidth: '200px' }}
-            value={selectedProject}
-            onChange={(e) => setSelectedProject(e.target.value)}
-          >
-            <option value="">-- Chọn dự án --</option>
-            {projects.map(project => (
-              <option key={project.id} value={project.title}>
-                {project.title}
-              </option>
-            ))}
-          </Form.Select>
+                <Col xs={12} sm={6} md={4}>
+                  <Form.Label className="fw-bold text-dark">
+                    <i className="fas fa-project-diagram me-2"></i>
+                    Dự án
+                  </Form.Label>
+                  <Form.Select
+                    value={selectedProject}
+                    onChange={(e) => setSelectedProject(e.target.value)}
+                    className="filter-select"
+                  >
+                    <option value="">Tất cả dự án</option>
+                    {projects.map(project => (
+                      <option key={project.id} value={project.title}>
+                        {project.title}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Col>
 
-          {(selectedTech || selectedProject) && (
-            <Button variant="outline-secondary" size="sm" onClick={resetFilters}>
-              Reset
-            </Button>
+                <Col xs={12} md={4}>
+                  <div className="filter-actions d-flex gap-2 align-items-center">
+                    {(selectedTech || selectedProject) && (
+                      <Button 
+                        variant="outline-secondary" 
+                        onClick={resetFilters}
+                        className="reset-btn"
+                      >
+                        <i className="fas fa-times me-2"></i>
+                        Reset
+                      </Button>
+                    )}
+                    <div className="filter-info text-center flex-fill">
+                      <Badge bg="info" className="fs-6">
+                        {filteredProjects.length} / {projects.length} dự án
+                      </Badge>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+
+        {/* Projects Display */}
+        <div className="projects-container">
+          {filteredProjects.length > 0 ? (
+            <div className="projects-grid">
+              {filteredProjects.map((project, index) => (
+                <ProjectItem 
+                  key={project.id} 
+                  project={project} 
+                  index={index} 
+                />
+              ))}
+            </div>
+          ) : (
+            <Row className="justify-content-center">
+              <Col xs={12} md={8} lg={6}>
+                <Alert variant="light" className="text-center empty-state border-0 shadow-sm">
+                  <div className="empty-state-content">
+                    <div className="empty-state-icon mb-4">
+                      <i className="fas fa-search fa-4x text-muted"></i>
+                    </div>
+                    <Alert.Heading className="h4 mb-3">Không tìm thấy dự án phù hợp</Alert.Heading>
+                    <p className="mb-4 text-muted">
+                      Không có dự án nào phù hợp với bộ lọc hiện tại. 
+                      Hãy thử thay đổi tiêu chí lọc hoặc xóa bộ lọc để xem tất cả dự án.
+                    </p>
+                    <Button variant="primary" onClick={resetFilters} size="lg">
+                      <i className="fas fa-eye me-2"></i>
+                      Xem tất cả dự án
+                    </Button>
+                  </div>
+                </Alert>
+              </Col>
+            </Row>
           )}
         </div>
 
-        {/* Projects Display */}
-        {filteredProjects.length > 0 ? (
-          filteredProjects.map((project, index) => (
-            <ProjectItem key={project.id} project={project} index={index} />
-          ))
-        ) : (
-          <Row className="justify-content-center">
-            <Col xs={12} md={8} lg={6}>
-              <Alert variant="info" className="text-center">
-                <Alert.Heading>Không tìm thấy dự án phù hợp</Alert.Heading>
-                <p>
-                  Không có dự án nào phù hợp với bộ lọc hiện tại. 
-                  Hãy thử thay đổi tiêu chí lọc hoặc xóa bộ lọc để xem tất cả dự án.
+        {/* Project Statistics */}
+        {filteredProjects.length > 0 && (
+          <Row className="mt-5">
+            <Col className="text-center">
+              <div className="project-stats bg-white p-3 rounded-3 shadow-sm">
+                <p className="text-muted mb-0">
+                  <i className="fas fa-chart-bar me-2"></i>
+                  <strong>Tổng quan:</strong> {filteredProjects.length} dự án được hiển thị
+                  {(selectedTech || selectedProject) && (
+                    <span className="filter-summary ms-2">
+                      (Đã lọc
+                      {selectedTech && ` theo ${selectedTech}`}
+                      {selectedProject && ` - ${selectedProject}`})
+                    </span>
+                  )}
                 </p>
-                <hr />
-                <div className="d-flex justify-content-center">
-                  <Button variant="outline-primary" onClick={resetFilters}>
-                    Xem tất cả dự án
-                  </Button>
-                </div>
-              </Alert>
+              </div>
             </Col>
           </Row>
         )}
-
-        {/* Project Statistics */}
-        <Row className="mt-5">
-          <Col className="text-center">
-            <p className="text-muted">
-              Hiển thị {filteredProjects.length} / {projects.length} dự án
-              {(selectedTech || selectedProject) && (
-                <span>
-                  {' '}(đã lọc
-                  {selectedTech && ` theo ${selectedTech}`}
-                  {selectedProject && ` - ${selectedProject}`})
-                </span>
-              )}
-            </p>
-          </Col>
-        </Row>
       </Container>
     </section>
   );
