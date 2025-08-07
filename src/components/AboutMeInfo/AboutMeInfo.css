@@ -1,18 +1,31 @@
+/* Optimized AboutMeInfo CSS */
 .about-bottom {
   position: relative;
-  /* background-image: url('../../assets/vanlang-bg.jpg'); */
+  /* Preload background image with better compression */
   background-image: url('../../assets/vanlang-bg.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed; /* Creates parallax effect but can cause performance issues on mobile */
   color: #fff;
   font-family: 'Times New Roman', Times, serif;
   z-index: 1;
+  /* Add will-change for better GPU acceleration */
+  will-change: scroll-position;
+}
+
+/* For mobile devices, disable fixed background to improve performance */
+@media (max-width: 768px) {
+  .about-bottom {
+    background-attachment: scroll;
+  }
 }
 
 .about-overlay {
   background-color: rgba(0, 0, 0, 0.83);
   padding: 60px 40px;
   min-height: 100%;
+  /* Use transform3d to force GPU acceleration */
+  transform: translate3d(0, 0, 0);
 }
 
 .about-title {
@@ -23,6 +36,8 @@
   letter-spacing: 1.4px;
   text-transform: uppercase;
   color: #fee440;
+  /* Add text shadow for better readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .student-card {
@@ -30,28 +45,55 @@
   height: auto;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Reduced transition time */
   cursor: pointer;
+  /* Optimize image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Add loading state styles */
+  opacity: 0;
+}
+
+.student-card.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.student-card.loading {
+  opacity: 1; /* Show immediately instead of hiding */
+  transform: scale(1);
 }
 
 .student-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03) translate3d(0, 0, 0); /* Reduced scale and added GPU acceleration */
 }
 
+/* Image container for better loading handling */
+.image-container {
+  position: relative;
+  min-height: 200px;
+}
+
+/* Optimize list styles */
 ul {
   padding-left: 22px;
   margin-bottom: 20px;
+  /* Add slight optimization */
+  contain: layout;
 }
 
 li {
   margin-bottom: 8px;
   font-size: 1rem;
   line-height: 1.4;
+  /* Improve text rendering */
+  text-rendering: optimizeLegibility;
 }
 
 p {
   margin-bottom: 12px;
   font-size: 1.05rem;
+  text-rendering: optimizeLegibility;
 }
 
 /* Icon check mark */
@@ -60,6 +102,62 @@ p {
   font-size: 1rem;
   vertical-align: middle;
 }
+
+/* GSAP fade-slide - optimized */
+.fade-slide {
+  opacity: 0;
+  transform: translateY(40px);
+  /* Use will-change only during animation - will be cleared by GSAP */
+  will-change: opacity, transform;
+}
+
+/* Loading and error states */
+.loading-placeholder,
+.error-placeholder {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Use containment for better performance */
+.about-bottom {
+  contain: layout style paint;
+}
+
+/* Optimize animations on mobile */
+@media (max-width: 768px) {
+  .student-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .student-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .student-card {
+    transition: none;
+  }
+  
+  .student-card:hover {
+    transform: none;
+  }
+  
+  .fade-slide {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 
 /* ===== LAPTOP & TABLET ≤ 992px ===== */
 @media (max-width: 992px) {
@@ -91,12 +189,18 @@ p {
     margin-top: 40px;
     max-width: 90%;
   }
+  
+  /* Reduce font weight on mobile for better performance */
+  .about-title {
+    font-weight: 600;
+  }
 }
 
 /* ===== MOBILE ≤ 576px ===== */
 @media (max-width: 576px) {
   .about-title {
     font-size: 1.6rem;
+    letter-spacing: 1px; /* Reduce letter spacing on mobile */
   }
 
   .about-overlay {
@@ -112,11 +216,9 @@ p {
   li {
     font-size: 0.95rem;
   }
-}
-
-/* GSAP fade-slide */
-.fade-slide {
-  opacity: 0;
-  transform: translateY(40px);
-  will-change: opacity, transform;
+  
+  /* Optimize images for mobile */
+  .image-container {
+    min-height: 150px;
+  }
 }
