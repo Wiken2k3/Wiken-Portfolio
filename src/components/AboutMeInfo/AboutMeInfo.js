@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import studentCard from '../../assets/student-card.png';
 import './AboutMeInfo.css';
-import ThreeBG from './ThreeBG';
+// import ThreeBG from './ThreeBG';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +50,7 @@ export default function AboutMeInfo() {
 
   return (
     <section className="about-bottom" id="about" ref={sectionRef}>
-      <ThreeBG />
+      {/* <ThreeBG /> */}
       <div className="about-overlay w-100">
         <Container>
           <h2 className="about-title text-center mb-5 fade-slide">ABOUT ME</h2>
@@ -59,7 +59,7 @@ export default function AboutMeInfo() {
               <Row>
                 <Col sm={6}>
                   <p><strong>Full Name:</strong> Trần Quốc Tuấn</p>
-                  <p><strong>GPA:</strong> 3.25</p>
+                  <p><strong>GPA:</strong> 3.05</p>
                   <p><strong>Major:</strong> Software Engineering</p>
 
                   <p><strong>Target:</strong></p>
