@@ -52,7 +52,9 @@ export default function SoftSkills() {
       <section className="soft-skills-section">
     <h2 className="text-center text-white mb-4">SOFT SKILLS</h2>
 
-    <div className="skill-block">
+    
+    <div className="soft-skills-inner">
+      <div className="skill-block">
         <h5 className="text-white">Kỹ năng trình bày quan điểm rõ ràng</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">
           {[present, present2, present1].map((img, idx) => (
@@ -62,8 +64,6 @@ export default function SoftSkills() {
           ))}
         </Slider>
       </div>
-
-    <div className="soft-skills-inner">
       <div className="skill-block">
         <h5 className="text-white">Khám phá và nghiên cứu công nghệ mới</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">
@@ -84,6 +84,7 @@ export default function SoftSkills() {
           ))}
         </Slider>
       </div>
+      
 
       {/* <div className="skill-block">
         <h5 className="text-white">Kỹ năng trình bày quan điểm rõ ràng</h5>
