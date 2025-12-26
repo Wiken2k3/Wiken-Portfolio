@@ -178,7 +178,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(8, 19, 33, 0.9), rgba(22, 36, 71, 0.9));
+  /* background: linear-gradient(45deg, rgba(8, 19, 33, 0.9), rgba(22, 36, 71, 0.9)); */
   opacity: 0;
   transition: all 0.3s ease;
   display: flex;

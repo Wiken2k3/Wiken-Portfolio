@@ -102,7 +102,7 @@ export default function AboutMeInfo() {
                 <Col sm={6}>
                   <div className="fade-slide">
                     <p><strong>Full Name:</strong> Trần Quốc Tuấn</p>
-                    <p><strong>GPA:</strong> 3.05</p>
+                    <p><strong>GPA:</strong> 2.98</p>
                     <p><strong>Major:</strong> Software Engineering</p>
 
                     <p><strong>Target:</strong></p>

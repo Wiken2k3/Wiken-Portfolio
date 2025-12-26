@@ -13,6 +13,7 @@ import AdminDashboard from '../../assets/admin-dashboard.png';
 import WikenAuthenticStore from '../../assets/authentic.png';
 import SportShop from '../../assets/sportshop.png';
 import HotwheelsShop from '../../assets/hotwheelsshop.png';
+import theInvincibleImg from '../../assets/invincible.png';
 import './ProjectsSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,7 +22,6 @@ export default function ProjectsSection() {
   const sectionRef = useRef(null);
   const [selectedTech, setSelectedTech] = useState('');
   const [selectedProject, setSelectedProject] = useState('');
-  const [animationInitialized, setAnimationInitialized] = useState(false);
 
   // Dữ liệu dự án - sử dụng useMemo để tránh re-render không cần thiết
   const projects = useMemo(() => [
@@ -29,11 +29,10 @@ export default function ProjectsSection() {
       id: 1,
       title: 'Taxi Tây Ninh',
       tech: ['ReactJS'],
-      role: 'Frontend Developer (06/2024 – 09/2024)',
+      role: 'Thực tập sinh Frontend Developer (06/2024 – 09/2024)',
       company: 'Công Ty IT-Global Technology Solutions Co., Ltd (IT-Global)',
       technologies: {
-        frontend: 'Html, CSS, JavaScript, ReactJS',
-        backend: 'NestJS'
+        frontend: 'Html, CSS, JavaScript, ReactJS, Bootstrap 5, React Router DOM, Axios, React Toastify, Responsive',
       },
       github: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
       demo: 'https://github.com/Wiken2k3/Taxi-Tay-Ninh.git',
@@ -43,25 +42,8 @@ export default function ProjectsSection() {
     },
     {
       id: 2,
-      title: 'Sport Shop',
-      tech: ['ReactJS'],
-      description: 'Full-Stack E-commerce Platform',
-      technologies: {
-        frontend: 'React.js, React Router DOM, Redux Toolkit, React Toastify, Axios, Bootstrap 5, Font Awesome, GSAP',
-        backend: 'Node.js, Express.js, MongoDB, Mongoose, CSS3, LocalStorage, Responsive'
-      },
-      github: {
-        frontend: 'https://github.com/Wiken2k3/Sport-Shop-Frontend',
-        backend: 'https://github.com/Wiken2k3/Sport-Shop-Backend'
-      },
-      image: SportShop,
-      alt: 'Sport Shop',
-      category: 'E-commerce'
-    },
-    {
-      id: 3,
       title: 'Hotwheels Shop',
-      tech: ['NextJS'],
+      tech: ['Next.js'],
       description: 'Modern E-commerce with TypeScript',
       technologies: {
         main: 'Next.js, TypeScript, Zustand, Tailwind CSS, ShadCN UI, Responsive Layout, React Hook Form, Zod, RTK Query, Jest, ESLint, Prettier'
@@ -73,19 +55,39 @@ export default function ProjectsSection() {
       category: 'E-commerce'
     },
     {
-      id: 4,
-      title: 'Luxury Store',
-      tech: ['ReactJS'],
-      description: 'Fashion E-commerce Platform',
+      id: 3,
+      title: 'The Invincible - Web3 Farming Game',
+      tech: ['ReactJS', 'TypeScript', 'Vite'],
+      company: 'Dự án cá nhân',
+      description: 'Một Web3 Mini Farming Game, mô phỏng trải nghiệm Play-to-Earn hoàn toàn ở phía client, sử dụng LocalStorage để lưu trữ dữ liệu và ví Sui để định danh người chơi.',
       technologies: {
-        main: 'ReactJS, Router DOM, Bootstrap 5, Toastify, CSS Modules, useState, useEffect, Responsive, LocalStorage'
+        frontend: 'React 18, Vite, TypeScript, Mantine UI, Framer Motion, React Router DOM, Sui Wallet Adapter',
+        backend: 'LocalStorage (Client-side storage)'
       },
-      github: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
-      demo: 'https://github.com/Wiken2k3/Admin-Clothing-Store.git',
-      image: luxuryStoreImg,
-      alt: 'Admin-Clothing-Store',
-      category: 'E-commerce'
+      features: [
+        '7+ Mini-Games giải trí để kiếm thêm Coins (Dice, Tài Xỉu, Mines, Slot...).',
+        'Giao diện Glassmorphism & Futuristic với hiệu ứng Parallax và Particle Background.'
+      ],
+      github: 'https://github.com/Wiken2k3/the-invincible-web3',
+      demo: 'https://the-invincible-web3.vercel.app/',
+      image: theInvincibleImg,
+      alt: 'The Invincible Web3 Game',
+      category: 'Web3'
     },
+    // {
+    //   id: 4,
+    //   title: 'Luxury Store',
+    //   tech: ['ReactJS'],
+    //   description: 'Fashion E-commerce Platform',
+    //   technologies: {
+    //     main: 'ReactJS, Router DOM, Bootstrap 5, Toastify, CSS Modules, useState, useEffect, Responsive, LocalStorage'
+    //   },
+    //   github: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
+    //   demo: 'https://github.com/Wiken2k3/Admin-Clothing-Store.git',
+    //   image: luxuryStoreImg,
+    //   alt: 'Admin-Clothing-Store',
+    //   category: 'E-commerce'
+    // },
     {
       id: 5,
       title: 'Wiken Authentic Store',
@@ -105,20 +107,20 @@ export default function ProjectsSection() {
       alt: 'Wiken Authentic Store',
       category: 'E-commerce'
     },
-    {
-      id: 6,
-      title: 'Website Tin tức 24/7',
-      tech: ['Vue.js'],
-      description: 'News Portal with Real-time Updates',
-      technologies: {
-        main: 'TypeScript, Vue.js 3, CSS3, LocalStorage, Responsive Design'
-      },
-      github: 'https://github.com/Wiken2k3/News-App',
-      demo: 'https://github.com/Wiken2k3/News-App',
-      image: NewsApp,
-      alt: 'News App',
-      category: 'Media'
-    },
+    // {
+    //   id: 6,
+    //   title: 'Website Tin tức 24/7',
+    //   tech: ['Vue.js'],
+    //   description: 'News Portal with Real-time Updates',
+    //   technologies: {
+    //     main: 'TypeScript, Vue.js 3, CSS3, LocalStorage, Responsive Design'
+    //   },
+    //   github: 'https://github.com/Wiken2k3/News-App',
+    //   demo: 'https://github.com/Wiken2k3/News-App',
+    //   image: NewsApp,
+    //   alt: 'News App',
+    //   category: 'Media'
+    // },
     {
       id: 7,
       title: 'T1Sneaker',
@@ -206,59 +208,37 @@ export default function ProjectsSection() {
     return [...new Set(projects.flatMap(project => project.tech))];
   }, [projects]);
 
-  // Cải tiến animation function để tránh loop vô hạn
-  const initializeAnimations = useCallback(() => {
-    const items = sectionRef.current?.querySelectorAll('.project-item');
-    
-    if (!items || items.length === 0) return;
-
-    // Xóa tất cả ScrollTriggers cũ
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-    // Khởi tạo animation cho mỗi item
-    items.forEach((item, i) => {
-      // Reset về trạng thái ban đầu
-      gsap.set(item, { 
-        opacity: 0, 
-        y: 50,
-        scale: 0.95
-      });
-      
-      // Tạo animation với ScrollTrigger
-      gsap.to(item, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        delay: i * 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
-          once: true, // Chỉ chạy một lần
-          onComplete: () => {
-            // Đảm bảo item hiển thị hoàn toàn sau khi animation hoàn thành
-            gsap.set(item, { opacity: 1, y: 0, scale: 1 });
-          }
-        }
-      });
-    });
-
-    setAnimationInitialized(true);
-  }, []);
-
-  // Effect để khởi tạo animations chỉ khi cần thiết
+  // Effect để khởi tạo và dọn dẹp animations cho các dự án
   useEffect(() => {
-    const timer = setTimeout(() => {
-      initializeAnimations();
-    }, 100);
+    // Sử dụng gsap.context để quản lý animations và ScrollTriggers một cách an toàn,
+    // tránh ảnh hưởng đến các component khác.
+    const ctx = gsap.context(() => {
+      const items = sectionRef.current?.querySelectorAll('.project-item');
+      if (!items || items.length === 0) {
+        return;
+      }
 
-    return () => {
-      clearTimeout(timer);
-      // Cleanup ScrollTriggers khi component unmount
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, [filteredProjects.length, initializeAnimations]); // Chỉ chạy lại khi số lượng project thay đổi
+      // Khởi tạo animation cho mỗi item
+      items.forEach((item, i) => {
+        gsap.from(item, {
+          opacity: 0,
+          y: 50,
+          scale: 0.95,
+          duration: 0.8,
+          delay: i * 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            once: true, // Chỉ chạy animation một lần khi item xuất hiện
+          },
+        });
+      });
+    }, sectionRef); // Giới hạn context trong section này
+
+    // Cleanup function: tự động revert tất cả animations và ScrollTriggers trong context khi component unmount hoặc re-render
+    return () => ctx.revert();
+  }, [filteredProjects]); // Chạy lại effect khi danh sách dự án thay đổi (do filter)
 
   // Reset filters
   const resetFilters = useCallback(() => {
@@ -484,7 +464,7 @@ export default function ProjectsSection() {
             <span className="title-subtitle d-block">PORTFOLIO</span>
           </h2>
           <p className="section-description lead">
-            Khám phá các dự án đã thực hiện 
+            Khám phá các dự án đã thực hiện
           </p>
         </div>
 
@@ -502,6 +482,7 @@ export default function ProjectsSection() {
                     value={selectedTech}
                     onChange={(e) => setSelectedTech(e.target.value)}
                     className="filter-select"
+                    aria-label="Lọc theo công nghệ"
                   >
                     <option value="">Tất cả công nghệ</option>
                     {uniqueTechnologies.map(tech => (
@@ -519,6 +500,7 @@ export default function ProjectsSection() {
                     value={selectedProject}
                     onChange={(e) => setSelectedProject(e.target.value)}
                     className="filter-select"
+                    aria-label="Lọc theo dự án"
                   >
                     <option value="">Tất cả dự án</option>
                     {projects.map(project => (
