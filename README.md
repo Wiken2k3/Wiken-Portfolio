@@ -2,7 +2,7 @@
 
 🌐 [Xem website](https://wikenportfolio.vercel.app)
 
-**Wiken Portfolio** là website cá nhân được phát triển để giới thiệu thông tin cá nhân, kỹ năng, dự án, kinh nghiệm và liên hệ. Giao diện hiện đại, hiệu ứng động tinh tế, thiết kế responsive, phù hợp cho developer muốn thể hiện năng lực qua portfolio online.
+**Wiken Portfolio** là một trang web portfolio cá nhân, được xây dựng bằng React, nhằm giới thiệu các kỹ năng, dự án và kinh nghiệm của một nhà phát triển. Website có giao diện hiện đại, hiệu ứng động tinh tế và thiết kế responsive, là một công cụ tuyệt vời để các nhà phát triển thể hiện năng lực của mình trực tuyến.
 
 ---
 

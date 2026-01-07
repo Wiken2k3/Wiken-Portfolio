@@ -13,6 +13,8 @@ import explore5 from '../../assets/soft/fsoft.jpg';
 import explore6 from '../../assets/soft/fsoft1.jpg';
 import explore7 from '../../assets/soft/fsoft2.jpg';
 import explore8 from '../../assets/soft/fsoft3.png';
+import explore9 from '../../assets/soft/SUI 1.jpg'; 
+import explore10 from '../../assets/soft/SUI 2.jpg';
 
 
 
@@ -26,6 +28,7 @@ import team6 from '../../assets/soft/group6.png';
 import team7 from '../../assets/soft/group7.png';
 import team8 from '../../assets/soft/group8.png';
 import team9 from '../../assets/soft/group9.png';
+import team10 from '../../assets/soft/SUI 3.jpg';
 
 
 import present from '../../assets/soft/class.png';
@@ -57,7 +60,7 @@ export default function SoftSkills() {
       <div className="skill-block">
         <h5 className="text-white">Kỹ năng trình bày quan điểm rõ ràng</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">
-          {[present, present2].map((img, idx) => (
+          {[present, explore9, explore10, present2].map((img, idx) => (
             <div key={idx} className="slider-item">
               <img src={img} alt={`team-${idx}`} className="slider-img" />
             </div>
@@ -67,7 +70,7 @@ export default function SoftSkills() {
       <div className="skill-block">
         <h5 className="text-white">Khám phá và nghiên cứu công nghệ mới</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">
-          {[explore1, explore5, explore2, explore3, explore4,  explore6, explore7, explore8, present1].map((img, idx) => (
+          {[explore1, explore5, explore2, explore3, explore4,  explore6, explore7, explore8,present1].map((img, idx) => (
             <div key={idx} className="slider-item">
               <img src={img} alt={`explore-${idx}`} className="slider-img" />
             </div>
@@ -77,7 +80,7 @@ export default function SoftSkills() {
       <div className="skill-block">
         <h5 className="text-white">Thích ứng và linh hoạt với công việc nhóm</h5>
         <Slider {...sliderSettings} className="soft-skill-slider">
-          {[team1, team2, team3,team4 , team5, team6, team7, team8, team9].map((img, idx) => (
+          {[ team10, team1, team2, team3,team4 , team5, team6, team7, team8, team9].map((img, idx) => (
             <div key={idx} className="slider-item">
               <img src={img} alt={`team-${idx}`} className="slider-img" />
             </div>
