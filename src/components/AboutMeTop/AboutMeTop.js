@@ -44,11 +44,12 @@ export default function AboutMeTop() {
             <div className="cv-buttons">
               <Button
                 variant="success"
-                href="https://drive.google.com/file/d/1UU-4kb48xyy8EIHYbNKd439eej2MTEQ1/view?usp=sharing"
+                href="/Trần Quốc Tuấn-Intern Frontend Developer.pdf"
                 target="_blank"
+		            className="view-cv-btn"
               >
                 <FontAwesomeIcon icon={faExternalLinkAlt} className="me-2" />
-                Go To My CV
+                View My CV
               </Button>
               <Button
                 variant="danger"
