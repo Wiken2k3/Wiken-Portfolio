@@ -4,16 +4,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import taxiImg from '../../assets/taxi-tayninh.png';
 import t1sneakerImg from '../../assets/t1sneaker.png';
-import luxuryStoreImg from '../../assets/luxury-store.png';
+// import luxuryStoreImg from '../../assets/luxury-store.png';
 import BlogAppImg from '../../assets/blog-app.png';
 import TaskManagement from '../../assets/task-management.png';
 import LichTruc from '../../assets/lich-truc.png';
-import NewsApp from '../../assets/news_app.png';
+// import NewsApp from '../../assets/news_app.png';
 import AdminDashboard from '../../assets/admin-dashboard.png';
 import WikenAuthenticStore from '../../assets/authentic.png';
-import SportShop from '../../assets/sportshop.png';
+// import SportShop from '../../assets/sportshop.png';
 import HotwheelsShop from '../../assets/hotwheelsshop.png';
 import theInvincibleImg from '../../assets/invincible.png';
+import MoodByStyle from '../../assets/moodbystyle.png';
 import './ProjectsSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -74,21 +75,22 @@ export default function ProjectsSection() {
       alt: 'The Invincible Web3 Game',
       category: 'Web3'
     },
-    // {
-    //   id: 4,
-    //   title: 'Luxury Store',
-    //   tech: ['ReactJS'],
-    //   description: 'Fashion E-commerce Platform',
-    //   technologies: {
-    //     main: 'ReactJS, Router DOM, Bootstrap 5, Toastify, CSS Modules, useState, useEffect, Responsive, LocalStorage'
-    //   },
-    //   github: 'https://github.com/Wiken2k3/Admin-Clothing-Store',
-    //   demo: 'https://github.com/Wiken2k3/Admin-Clothing-Store.git',
-    //   image: luxuryStoreImg,
-    //   alt: 'Admin-Clothing-Store',
-    //   category: 'E-commerce'
-    // },
     {
+        id: 4,
+        title: 'MoodByStyle',
+        tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Zustand'],
+        description: 'Spotify-inspired Music Streaming Web App',
+        technologies: {
+          main: 'Next.js 14, React, TypeScript, Tailwind CSS, Zustand, Lucide React, Responsive Design, Audio Player, State Management'
+        },
+        github: 'https://github.com/Wiken2k3/MoodByStyle',
+        demo: 'https://mood-by-style.vercel.app/',
+        image: MoodByStyle,
+        alt: 'MoodByStyle Music Streaming App',
+        category: 'Music Streaming'
+      }
+
+    ,{
       id: 5,
       title: 'Wiken Authentic Store',
       tech: ['ReactJS'],
