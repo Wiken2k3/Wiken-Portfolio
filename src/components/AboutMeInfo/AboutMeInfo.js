@@ -9,27 +9,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMeInfo() {
   const sectionRef = useRef(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  // const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   // Show content immediately without waiting for scroll
   useEffect(() => {
     // Make content visible immediately
-    setIsVisible(true);
+    // setIsVisible(true);
   }, []);
 
   // Preload student card image immediately
   useEffect(() => {
     const img = new Image();
     img.src = studentCard;
-    img.onload = () => setImageLoaded(true);
+    // img.onload = () => setImageLoaded(true);
     img.onerror = () => setImageError(true);
   }, []);
 
   // Handle student card image load
   const handleImageLoad = useCallback(() => {
-    setImageLoaded(true);
+    // setImageLoaded(true);
   }, []);
 
   const handleImageError = useCallback(() => {
