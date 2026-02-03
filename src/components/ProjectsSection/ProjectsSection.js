@@ -75,22 +75,26 @@ export default function ProjectsSection() {
       alt: 'The Invincible Web3 Game',
       category: 'Web3'
     },
-    {
-        id: 4,
-        title: 'MoodByStyle',
-        tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Zustand'],
-        description: 'Spotify-inspired Music Streaming Web App',
-        technologies: {
-          main: 'Next.js 14, React, TypeScript, Tailwind CSS, Zustand, Lucide React, Responsive Design, Audio Player, State Management'
-        },
-        github: 'https://github.com/Wiken2k3/MoodByStyle',
-        demo: 'https://mood-by-style.vercel.app/',
-        image: MoodByStyle,
-        alt: 'MoodByStyle Music Streaming App',
-        category: 'Music Streaming'
-      }
-
-    ,{
+        {
+      id: 4,
+      title: 'MoodByStyle',
+      tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Zustand'],
+      description: 'Spotify-inspired Music Streaming Web App',
+      technologies: {
+        main: 'Next.js 14, React, TypeScript, Tailwind CSS, Zustand, Lucide React, Responsive Design, Audio Player, State Management'
+      },
+      features: [
+        'Trình phát nhạc đầy đủ: Play/Pause, Next/Prev, Shuffle, Repeat, Seek, Volume',
+        'Guest/User mode, đăng nhập để lưu playlist & bài hát yêu thích',
+        'Tìm kiếm thời gian thực, quản lý thư viện cá nhân & hàng đợi (Queue)'
+      ],
+      github: 'https://github.com/Wiken2k3/MoodByStyle',
+      demo: 'https://mood-by-style.vercel.app/',
+      image: MoodByStyle,
+      alt: 'MoodByStyle Music Streaming App',
+      category: 'Music Streaming'
+    }
+  ,{
       id: 5,
       title: 'Wiken Authentic Store',
       tech: ['ReactJS'],
