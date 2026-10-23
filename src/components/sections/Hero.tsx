@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type Ref } from 'react';
 import { Link } from 'react-router-dom';
-import { PORTRAIT_ASPECT_RATIO, PORTRAIT_SRC, site } from '../../data/site';
+import { PORTRAIT_ASPECT_RATIO, PORTRAIT_SRC } from '../../data/site';
 import { getMotionRuntime, subscribeMotion } from '../../lib/motion';
 import { Picture } from '../ui/Picture';
 
@@ -19,7 +19,7 @@ export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const bandRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLSpanElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const groupRef = useRef<HTMLSpanElement>(null);
   const figureRef = useRef<HTMLDivElement>(null);
   const uiRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,9 @@ export function Hero() {
         const onLenisScroll = (event: LenisScroll) => {
           speedTo(Math.max(0.85, Math.min(1.16, 1 + (event.velocity ?? 0) * 0.0015)));
         };
-        const ticker = () => marquee?.timeScale(speed.value);
+        const ticker = () => {
+          marquee?.timeScale(speed.value);
+        };
         runtime.lenis.on('scroll', onLenisScroll);
         runtime.gsap.ticker.add(ticker);
         document.addEventListener('visibilitychange', onVisibility);
@@ -113,7 +115,7 @@ export function Hero() {
           const pointerMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
           if (pointerMedia.matches) hero.addEventListener('pointermove', onPointer, { passive: true });
 
-          resizeObserver = new ResizeObserver(measure);
+          resizeObserver = new ResizeObserver(() => measure());
           resizeObserver.observe(hero);
           void document.fonts.ready.then(() => measure(true));
           measure();
