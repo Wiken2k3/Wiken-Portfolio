@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "npm run optimize:images && tsc --noEmit && vite-react-ssg build",
+    "build": "npm run optimize:images && npm run validate:images && tsc --noEmit && vite-react-ssg build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "validate:images": "node scripts/validate-images.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

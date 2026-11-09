@@ -716,24 +716,24 @@
     "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAwCdASoYABAAPyVWxFyuIyklmAHAJIllALsAIdMLnBSW2kAVz1hgAP6MTttbdv36l9Z5lUqorzxRKa27sW2ioT3cGgpYixcAAA==",
     "variants": {
       "480": {
-        "avif": "/assets/soft/SUI 1-480.avif",
-        "webp": "/assets/soft/SUI 1-480.webp"
+        "avif": "/assets/soft/SUI%201-480.avif",
+        "webp": "/assets/soft/SUI%201-480.webp"
       },
       "768": {
-        "avif": "/assets/soft/SUI 1-768.avif",
-        "webp": "/assets/soft/SUI 1-768.webp"
+        "avif": "/assets/soft/SUI%201-768.avif",
+        "webp": "/assets/soft/SUI%201-768.webp"
       },
       "960": {
-        "avif": "/assets/soft/SUI 1-960.avif",
-        "webp": "/assets/soft/SUI 1-960.webp"
+        "avif": "/assets/soft/SUI%201-960.avif",
+        "webp": "/assets/soft/SUI%201-960.webp"
       },
       "1280": {
-        "avif": "/assets/soft/SUI 1-1280.avif",
-        "webp": "/assets/soft/SUI 1-1280.webp"
+        "avif": "/assets/soft/SUI%201-1280.avif",
+        "webp": "/assets/soft/SUI%201-1280.webp"
       },
       "1600": {
-        "avif": "/assets/soft/SUI 1-1600.avif",
-        "webp": "/assets/soft/SUI 1-1600.webp"
+        "avif": "/assets/soft/SUI%201-1600.avif",
+        "webp": "/assets/soft/SUI%201-1600.webp"
       }
     }
   },
@@ -743,24 +743,24 @@
     "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoYABAAPyV+tVGuKCUisAgBwCSJZQC+SCHWmRduqkaCAAD+w7syhOfSk4Nh7UixHslLOawXfTGqSgZSDrqnAAAA",
     "variants": {
       "480": {
-        "avif": "/assets/soft/SUI 2-480.avif",
-        "webp": "/assets/soft/SUI 2-480.webp"
+        "avif": "/assets/soft/SUI%202-480.avif",
+        "webp": "/assets/soft/SUI%202-480.webp"
       },
       "768": {
-        "avif": "/assets/soft/SUI 2-768.avif",
-        "webp": "/assets/soft/SUI 2-768.webp"
+        "avif": "/assets/soft/SUI%202-768.avif",
+        "webp": "/assets/soft/SUI%202-768.webp"
       },
       "960": {
-        "avif": "/assets/soft/SUI 2-960.avif",
-        "webp": "/assets/soft/SUI 2-960.webp"
+        "avif": "/assets/soft/SUI%202-960.avif",
+        "webp": "/assets/soft/SUI%202-960.webp"
       },
       "1280": {
-        "avif": "/assets/soft/SUI 2-1280.avif",
-        "webp": "/assets/soft/SUI 2-1280.webp"
+        "avif": "/assets/soft/SUI%202-1280.avif",
+        "webp": "/assets/soft/SUI%202-1280.webp"
       },
       "1600": {
-        "avif": "/assets/soft/SUI 2-1600.avif",
-        "webp": "/assets/soft/SUI 2-1600.webp"
+        "avif": "/assets/soft/SUI%202-1600.avif",
+        "webp": "/assets/soft/SUI%202-1600.webp"
       }
     }
   },
@@ -770,16 +770,16 @@
     "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACQBQCdASoYACQAPyV+t1UuJ6UjKrgMAcAkiWMAxzBBDY7jHjOnGjQ7SyqQ1+NdmGphPPKIQAD+ufnfh8Vi16MOv0vW2rz7OoI4GsyfHQ/IZWrA5ALB3krgOOVsHLt/Ge4DZY4Q0cgSgYs6S9HDcM+dElatbW5FfTQhVt0bG2ioTMfeAAA=",
     "variants": {
       "480": {
-        "avif": "/assets/soft/SUI 3-480.avif",
-        "webp": "/assets/soft/SUI 3-480.webp"
+        "avif": "/assets/soft/SUI%203-480.avif",
+        "webp": "/assets/soft/SUI%203-480.webp"
       },
       "768": {
-        "avif": "/assets/soft/SUI 3-768.avif",
-        "webp": "/assets/soft/SUI 3-768.webp"
+        "avif": "/assets/soft/SUI%203-768.avif",
+        "webp": "/assets/soft/SUI%203-768.webp"
       },
       "909": {
-        "avif": "/assets/soft/SUI 3-909.avif",
-        "webp": "/assets/soft/SUI 3-909.webp"
+        "avif": "/assets/soft/SUI%203-909.avif",
+        "webp": "/assets/soft/SUI%203-909.webp"
       }
     }
   },

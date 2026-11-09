@@ -18,6 +18,12 @@
 - 🍞 Toast notification (React Toastify)
 - 📦 Code phân chia rõ ràng theo component
 
+## 📧 Cấu hình form liên hệ
+
+Form liên hệ gửi email bằng EmailJS. Để bật gửi trực tiếp ở local, tạo file `.env.local` dựa trên `.env.example` và điền Service ID, Template ID cùng Public Key từ EmailJS. Trong EmailJS, đặt địa chỉ nhận là email của bạn và cấu hình template với các biến `{{name}}`, `{{email}}`, `{{title}}`, `{{message}}`; dùng `{{email}}` làm Reply-To để có thể trả lời người gửi. Nếu đã bật giới hạn domain trong EmailJS, cho phép domain website và `localhost` khi phát triển.
+
+Trên Vercel, thêm ba biến `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID` và `VITE_EMAILJS_PUBLIC_KEY` trong **Project Settings → Environment Variables**, áp dụng cho Production (và Preview nếu cần), sau đó redeploy. Public Key được dùng phía trình duyệt; không đặt private key hoặc thông tin SMTP trong biến `VITE_`. Nếu EmailJS chưa cấu hình hoặc gặp sự cố, form cung cấp liên kết mở ứng dụng email để người xem vẫn gửi được lời nhắn.
+
 ---
 
 ## 🛠️ Tech Stack

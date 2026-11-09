@@ -19,15 +19,20 @@ type ImageEntry = { width: number; height: number; placeholder: string; variants
 const manifest = imageManifest as Record<string, ImageEntry>;
 
 export function Picture({ base, alt, width, height, sizes = '100vw', loading = 'lazy', priority = false, className, wrapperClassName, onLoad }: PictureProps) {
-  const [avifFailed, setAvifFailed] = useState(false);
-  const key = base.replace(/^\/assets\//, '');
+  const [imageFailed, setImageFailed] = useState(false);
+  let key = base.replace(/^\/assets\//, '');
+  try {
+    key = decodeURIComponent(key);
+  } catch {
+    // Keep the original key so malformed paths are caught by the build validator.
+  }
   const entry = manifest[key];
   const variants = entry?.variants ?? {};
   const srcSet = (format: 'avif' | 'webp') => Object.entries(variants).filter(([, variant]) => variant[format]).map(([size, variant]) => `${variant[format]} ${size}w`).join(', ');
   const fallback = Object.values(variants).find((variant) => variant.webp)?.webp ?? `${base}-960.webp`;
   return <picture className={wrapperClassName}>
-    {!avifFailed && Object.keys(variants).length > 0 && <source type="image/avif" srcSet={srcSet('avif')} sizes={sizes} />}
-    {Object.keys(variants).length > 0 && <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />}
-    <img className={className} src={fallback} srcSet={srcSet('webp') || undefined} sizes={sizes} width={entry?.width ?? width} height={entry?.height ?? height} alt={alt} loading={priority ? 'eager' : loading} decoding="async" fetchPriority={priority ? 'high' : 'auto'} onLoad={onLoad} onError={() => setAvifFailed(true)} />
+    {!imageFailed && Object.keys(variants).length > 0 && <source type="image/avif" srcSet={srcSet('avif')} sizes={sizes} />}
+    {!imageFailed && Object.keys(variants).length > 0 && <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />}
+    <img className={className} src={imageFailed ? (entry?.placeholder ?? '') : fallback} srcSet={imageFailed ? undefined : srcSet('webp') || undefined} sizes={sizes} width={entry?.width ?? width} height={entry?.height ?? height} alt={alt} loading={priority ? 'eager' : loading} decoding="async" fetchPriority={priority ? 'high' : 'auto'} onLoad={onLoad} onError={() => setImageFailed(true)} />
   </picture>;
 }

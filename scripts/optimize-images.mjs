@@ -12,6 +12,10 @@ const projectImages = new Set(['admin-dashboard.png', 'authentic.png', 'blog-app
 const files = [];
 await fs.rm(output, { recursive: true, force: true });
 
+function toPublicUrl(relativePath) {
+    return `/assets/${relativePath.split(path.sep).join('/').split('/').map(encodeURIComponent).join('/')}`;
+}
+
 async function collect(directory, base) {
     for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
         if (entry.name === 'assets' || entry.name === 'src') continue;
@@ -85,13 +89,13 @@ for (const file of files) {
         const avifName = `${path.basename(key)}-${width}.avif`;
         const webpName = `${path.basename(key)}-${width}.webp`;
         await Promise.all([
-            resized.clone().avif({ quality: isPortrait ? 68 : 52, effort: 7, chromaSubsampling: isPortrait ? '4:4:4' : '4:2:0' }).toFile(path.join(folder, avifName)),
-            resized.clone().webp({ quality: isPortrait ? 78 : 68, effort: 6 }).toFile(path.join(folder, webpName)),
+            resized.clone().avif({ quality: isPortrait ? 68 : 52, effort: 4, chromaSubsampling: isPortrait ? '4:4:4' : '4:2:0' }).toFile(path.join(folder, avifName)),
+            resized.clone().webp({ quality: isPortrait ? 78 : 68, effort: 4 }).toFile(path.join(folder, webpName)),
         ]);
         variants[width] = {
-                avif: `/assets/${path.dirname(relative) === '.' ? '' : `${path.dirname(relative).replaceAll('\\', '/')}/`}${avifName}`,
-      webp: `/assets/${path.dirname(relative) === '.' ? '' : `${path.dirname(relative).replaceAll('\\', '/')}/`}${webpName}`,
-    };
+            avif: toPublicUrl(path.join(path.dirname(relative) === '.' ? '' : path.dirname(relative), avifName)),
+            webp: toPublicUrl(path.join(path.dirname(relative) === '.' ? '' : path.dirname(relative), webpName)),
+        };
   }
 
   const placeholder = await source.clone().resize({ width: 24 }).blur(2).webp({ quality: 25 }).toBuffer();

@@ -21,7 +21,7 @@ export function SEO({ title, description, path = '/' }: { title: string; descrip
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={`${origin}/og-image.jpg`} />
+    <meta property="og:image" content={`${origin}/assets/portrait-960.webp`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
